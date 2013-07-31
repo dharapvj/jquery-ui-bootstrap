@@ -352,6 +352,7 @@
 // For selecting text on the page
 .user-select(@select) {
   -webkit-user-select: @select;
+   -khtml-user-select: @select;
      -moz-user-select: @select;
       -ms-user-select: @select;
        -o-user-select: @select;
@@ -386,7 +387,9 @@
 
 // Opacity
 .opacity(@opacity) {
+  zoom:1;
   opacity: @opacity / 100;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=@{opacity})"; /* works in IE 8 */
   filter: ~"alpha(opacity=@{opacity})";
 }
 
@@ -466,6 +469,31 @@
     background-repeat: no-repeat;
     filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",argb(@startColor),argb(@endColor))); // IE9 and down, gets no color-stop at all for proper fallback
   }
+  
+  .vertical-two-color-stop(@color1, @stop1:20%, @color2, @stop2: 100%) {
+    background-color: mix(@color1, @color2, 80%);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, color-stop(@color1, @stop1), color-stop(@color2, @stop2));
+    background-image: -webkit-linear-gradient(top, @color1 @stop1, @color2 @stop2 );
+    background-image: -moz-linear-gradient(top, @color1 @stop1, @color2 @stop2 );
+    background-image: -o-linear-gradient(top, @color1 @stop1, @color2 @stop2 );
+    background-image: -ms-linear-gradient(top, @color1 @stop1, @color2 @stop2 );
+    background-image: linear-gradient(top, @color1 @stop1, @color2 @stop2 );
+    background-repeat: no-repeat;
+    filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",argb(@color1),argb(@color2))); // IE9 and down, gets no color-stop at all for proper fallback
+  }
+
+  .vertical-four-color-stop(@color1, @stop1:20%, @color2, @stop2: 50%, @color3, @stop3, @color4, @stop4: 100%) {
+    background-color: mix(@color1, @color4, 80%);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, color-stop(@color1, @stop1), color-stop(@color2, @stop2), color-stop(@color3, @stop3), color-stop(@color4, @stop4));
+    background-image: -webkit-linear-gradient(top, @color1 @stop1, @color2 @stop2, @color3 @stop3, @color4 @stop4 );
+    background-image: -moz-linear-gradient(top, @color1 @stop1, @color2 @stop2, @color3 @stop3, @color4 @stop4 );
+    background-image: -o-linear-gradient(top, @color1 @stop1, @color2 @stop2, @color3 @stop3, @color4 @stop4 );
+    background-image: -ms-linear-gradient(top, @color1 @stop1, @color2 @stop2, @color3 @stop3, @color4 @stop4 );
+    background-image: linear-gradient(top, @color1 @stop1, @color2 @stop2, @color3 @stop3, @color4 @stop4 );
+    background-repeat: no-repeat;
+    filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",argb(@color1),argb(@color4))); // IE9 and down, gets no color-stop at all for proper fallback
+  }
+  
   .radial(@innerColor: #555, @outerColor: #333) {
     background-color: @outerColor;
     background-image: -webkit-gradient(radial, center center, 0, center center, 460, from(@innerColor), to(@outerColor));
