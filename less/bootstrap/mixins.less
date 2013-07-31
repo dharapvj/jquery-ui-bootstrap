@@ -342,7 +342,9 @@
 // Box sizing
 .box-sizing(@boxmodel) {
   -webkit-box-sizing: @boxmodel;
+   -khtml-box-sizing: @boxmodel; /* konqueror */
      -moz-box-sizing: @boxmodel;
+      -ms-box-sizing: @boxmodel; /* ie */
           box-sizing: @boxmodel;
 }
 

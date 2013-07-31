@@ -164,4 +164,8 @@ $(function(){
             .jqGrid('filterToolbar',{defaultSearch:true,stringResult:true})
             .jqGrid('setSelection', '3');
     }
+	
+	//select2
+	$("#e1").select2();
+	
 })
