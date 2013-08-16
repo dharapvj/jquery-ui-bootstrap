@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/custom-theme/jquery-ui-1.10.3.custom.css">
+    <!-- link rel="stylesheet" href="../less/style.min.css" -->
+</head>
+<body>
+
+This works fine.
+<div class="mycontainer">
+    <button class="ui-button-primary">Primary</button>
+    <button class="ui-button-success">Success</button>
+    <button class="ui-button-info">Info</button>
+    <button class="ui-button-warning">Warning</button>
+    <button class="ui-button-danger">Danger</button>
+    <button class="ui-button-inverse">Inverse</button>
+    <button class="ui-button-error">Error</button>
+</div>
+
+And this.... does too!
+<div class="mycontainer ui-widget-content">
+    <button class="ui-button-primary">Primary</button>
+    <button class="ui-button-success">Success</button>
+    <button class="ui-button-info">Info</button>
+    <button class="ui-button-warning">Warning</button>
+    <button class="ui-button-danger">Danger</button>
+    <button class="ui-button-inverse">Inverse</button>
+    <button class="ui-button-error">Error</button>
+</div>
+
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="../assets/js/jquery-1.9.1.min.js"></script>
+<script src="../assets/js/jquery-ui-1.10.3.custom.min.js"></script>
+<script>
+    $(function(){
+        $('.mycontainer button').button();
+    });
+</script>
+</body>
+</html>
